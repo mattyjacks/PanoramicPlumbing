@@ -37,35 +37,7 @@ function setActiveNavLink() {
     });
 }
 
-// Smooth Scroll for Anchor Links
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
-}
-
-// Add subtle parallax effect to hero section
-function initParallax() {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        });
-    }
-}
+// Scrolling effects removed per user request
 
 // Contact Form Validation (if form exists)
 function initContactForm() {
@@ -203,8 +175,6 @@ function initCardEffects() {
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     setActiveNavLink();
-    initSmoothScroll();
-    initParallax();
     initContactForm();
     initCardEffects();
 });

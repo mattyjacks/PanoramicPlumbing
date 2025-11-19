@@ -1,0 +1,459 @@
+/* Blueprint Animation Overlay */
+.hero-blueprint-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Blue transparent overlay */
+.blueprint-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 61, 130, 0.55);
+    z-index: 1;
+}
+
+/* Blueprint grid container */
+.blueprint-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    z-index: 2;
+    animation: gridSlideUp 20s linear infinite;
+}
+
+/* Vertical lines (stationary) */
+.blueprint-vertical-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 79px,
+        rgba(255, 255, 255, 0.15) 79px,
+        rgba(255, 255, 255, 0.15) 80px,
+        transparent 80px,
+        transparent 159px,
+        rgba(255, 255, 255, 0.25) 159px,
+        rgba(255, 255, 255, 0.25) 161px
+    );
+}
+
+/* Horizontal lines (moving) */
+.blueprint-horizontal-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 79px,
+        rgba(255, 255, 255, 0.15) 79px,
+        rgba(255, 255, 255, 0.15) 80px,
+        transparent 80px,
+        transparent 159px,
+        rgba(255, 255, 255, 0.25) 159px,
+        rgba(255, 255, 255, 0.25) 161px
+    );
+}
+
+/* Blueprint corner markers */
+.blueprint-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    z-index: 3;
+}
+
+.blueprint-corner.top-left {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.blueprint-corner.top-right {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.blueprint-corner.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    border-right: none;
+    border-top: none;
+}
+
+.blueprint-corner.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
+}
+
+/* Animated measurement lines */
+.blueprint-measure {
+    position: absolute;
+    z-index: 3;
+}
+
+.blueprint-measure-line {
+    background: rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.blueprint-measure-line::before,
+.blueprint-measure-line::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Horizontal measure */
+.measure-horizontal {
+    height: 1px;
+    width: 0;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: expandHorizontal 3s ease-in-out infinite;
+}
+
+.measure-horizontal::before,
+.measure-horizontal::after {
+    width: 1px;
+    height: 10px;
+    top: -5px;
+}
+
+.measure-horizontal::before {
+    left: 0;
+}
+
+.measure-horizontal::after {
+    right: 0;
+}
+
+/* Vertical measure */
+.measure-vertical {
+    width: 1px;
+    height: 0;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: expandVertical 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+.measure-vertical::before,
+.measure-vertical::after {
+    height: 1px;
+    width: 10px;
+    left: -5px;
+}
+
+.measure-vertical::before {
+    top: 0;
+}
+
+.measure-vertical::after {
+    bottom: 0;
+}
+
+/* Blueprint technical dots */
+.blueprint-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-image: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 40px 40px;
+    opacity: 0.5;
+}
+
+/* Scanning line effect */
+.blueprint-scan {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: scanDown 8s ease-in-out infinite;
+    z-index: 4;
+}
+
+/* Keyframe Animations */
+@keyframes gridSlideUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes expandHorizontal {
+    0%, 100% {
+        width: 0;
+        opacity: 0.3;
+    }
+    50% {
+        width: 200px;
+        opacity: 1;
+    }
+}
+
+@keyframes expandVertical {
+    0%, 100% {
+        height: 0;
+        opacity: 0.3;
+    }
+    50% {
+        height: 150px;
+        opacity: 1;
+    }
+}
+
+@keyframes scanDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh));
+        opacity: 0;
+    }
+}
+
+/* Pulse animation for corners */
+@keyframes cornerPulse {
+    0%, 100% {
+        opacity: 0.4;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.blueprint-corner {
+    animation: cornerPulse 4s ease-in-out infinite;
+}
+
+.blueprint-corner.top-left {
+    animation-delay: 0s;
+}
+
+.blueprint-corner.top-right {
+    animation-delay: 1s;
+}
+
+.blueprint-corner.bottom-right {
+    animation-delay: 2s;
+}
+
+.blueprint-corner.bottom-left {
+    animation-delay: 3s;
+}
+
+/* Technical coordinate markers */
+.blueprint-coordinates {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    z-index: 3;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.coord-tl {
+    top: 70px;
+    left: 30px;
+}
+
+.coord-tr {
+    top: 70px;
+    right: 30px;
+}
+
+.coord-bl {
+    bottom: 30px;
+    left: 30px;
+}
+
+.coord-br {
+    bottom: 30px;
+    right: 30px;
+}
+
+/* Technical data points */
+.blueprint-datapoint {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    z-index: 3;
+    animation: datapointPulse 2s ease-in-out infinite;
+}
+
+@keyframes datapointPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+/* Crosshair overlay effect */
+.blueprint-crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    opacity: 0.2;
+}
+
+.blueprint-crosshair::before,
+.blueprint-crosshair::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.blueprint-crosshair::before {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.blueprint-crosshair::after {
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Animated circuit lines */
+.blueprint-circuit {
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+    animation: circuitFade 4s ease-in-out infinite;
+}
+
+.circuit-1 {
+    top: 25%;
+    left: 10%;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    animation-delay: 0s;
+}
+
+.circuit-2 {
+    top: 75%;
+    right: 10%;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(
+        0deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    animation-delay: 2s;
+}
+
+@keyframes circuitFade {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .blueprint-corner {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .measure-horizontal {
+        animation: none;
+        display: none;
+    }
+    
+    .measure-vertical {
+        animation: none;
+        display: none;
+    }
+    
+    .blueprint-coordinates {
+        font-size: 8px;
+    }
+    
+    .blueprint-crosshair {
+        display: none;
+    }
+    
+    .blueprint-circuit {
+        display: none;
+    }
+}

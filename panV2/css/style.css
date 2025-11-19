@@ -17,10 +17,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
@@ -35,18 +31,6 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    animation: slideDown 0.5s ease-out;
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 .header-top {
@@ -114,7 +98,8 @@ header {
     transform: scale(1.05);
 }
 
-.logo svg {
+.logo svg,
+.logo img {
     width: 40px;
     height: 40px;
 }
@@ -174,68 +159,28 @@ nav a:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
-    animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)" /></svg>');
-    animation: gridMove 20s linear infinite;
-}
-
-@keyframes gridMove {
-    from {
-        transform: translate(0, 0);
-    }
-    to {
-        transform: translate(40px, 40px);
-    }
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
 }
 
 .hero-content {
     max-width: 900px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: 10;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
-    animation: slideUp 0.8s ease-out 0.2s both;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
     opacity: 0.95;
-    animation: slideUp 0.8s ease-out 0.4s both;
 }
 
 /* Buttons */
@@ -249,7 +194,6 @@ nav a:hover {
     border: none;
     cursor: pointer;
     font-size: 1rem;
-    animation: slideUp 0.8s ease-out 0.6s both;
 }
 
 .btn-primary {
@@ -286,7 +230,6 @@ nav a:hover {
 /* Section Styles */
 .section {
     padding: 5rem 0;
-    animation: fadeIn 0.8s ease-out;
 }
 
 .section-alt {
@@ -626,18 +569,4 @@ footer {
 /* Smooth transitions for all interactive elements */
 a, button, .service-card, .info-card, .review-card {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Subtle pulse animation for important elements */
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.8;
-    }
-}
-
-.pulse {
-    animation: pulse 2s ease-in-out infinite;
 }

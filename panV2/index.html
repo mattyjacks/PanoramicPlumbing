@@ -6,6 +6,7 @@
     <meta name="description" content="Panoramic Plumbing - Third generation plumbing company in Manchester, NH. Expert plumbing, heating, and cooling services for residential and commercial properties.">
     <title>Panoramic Plumbing | Expert Plumbing & HVAC Services in Manchester, NH</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blueprint-animation.css">
 </head>
 <body>
     <!-- Header -->
@@ -30,9 +31,7 @@
         </div>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
+                <img src="images/panoramic-plumbing-logo-white.png" alt="Panoramic Plumbing" />
                 Panoramic Plumbing
             </a>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -53,7 +52,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="background-image: url('images/panoramic plumbing banner image plumbing image 2.jpg');">
         <div class="hero-content">
             <h1>Expert Plumbing & HVAC Solutions</h1>
             <p>Third generation plumbing company serving Manchester, NH and surrounding areas. From leaks to full rehab construction, we're your trusted solution providers.</p>
@@ -101,17 +100,35 @@
                     <h3>Cooling</h3>
                     <p>A/C installation, repair and service, ductless mini splits, humidifiers. Keep your space comfortable year-round.</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="service-card">
-                    <div class="service-icon">
+    <!-- Emergency Services Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" style="color: #dc2626;">Emergency Services</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div class="service-card" style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); color: white; padding: 3rem; box-shadow: 0 8px 30px rgba(220, 38, 38, 0.3);">
+                    <div class="service-icon" style="background: white; color: #dc2626; margin: 0 auto 1.5rem;">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3>Emergency Services</h3>
-                    <p>Give us a call today to prevent an emergency, or if you are experiencing one right now! Available when you need us most.</p>
+                    <h3 style="color: white; font-size: 2rem;">24/7 Emergency Support</h3>
+                    <p style="font-size: 1.2rem; color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">Give us a call today to prevent an emergency, or if you are experiencing one right now! We're available when you need us most.</p>
+                    <a href="tel:6036009969" class="btn" style="background: white; color: #dc2626; font-size: 1.2rem; padding: 1.25rem 3rem; display: inline-block;">
+                        Call Now: (603) 600-9969
+                    </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Plumbing Work Image -->
+    <section class="section">
+        <div class="container" style="text-align: center;">
+            <img src="images/panoramic plumbing repairing a sink plumbing image 1.jpg" alt="Panoramic Plumbing - Professional Sink Repair" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 61, 130, 0.15);">
         </div>
     </section>
 
@@ -246,6 +263,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
+                <img src="images/panoramic-plumbing-logo.svg" alt="Panoramic Plumbing Logo" style="width: 180px; height: auto; margin-bottom: 1.5rem;" />
                 <h3>Panoramic Plumbing</h3>
                 <p>Third generation plumbing company serving Manchester, NH and surrounding areas with pride and dedication.</p>
                 <p style="margin-top: 1rem;">
@@ -290,5 +308,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/blueprint-animation.js"></script>
 </body>
 </html>
