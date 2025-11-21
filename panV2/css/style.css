@@ -224,12 +224,12 @@ nav a:hover {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
 }
 
 /* Section Styles */
 .section {
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 
 .section-alt {
@@ -237,19 +237,20 @@ nav a:hover {
 }
 
 .section-title {
+    font-size: 2rem;
     text-align: center;
-    font-size: 2.5rem;
     color: var(--primary-blue);
-    margin-bottom: 3rem;
+    margin: 0 0 0.5rem 0;
+    padding: 0;
     font-weight: 700;
 }
 
 .section-subtitle {
     text-align: center;
-    font-size: 1.1rem;
     color: var(--text-gray);
-    max-width: 700px;
-    margin: 0 auto 3rem;
+    font-size: 1rem;
+    margin: 0 0 2rem 0;
+    padding: 0;
 }
 
 /* Services Grid */
@@ -260,46 +261,54 @@ nav a:hover {
 }
 
 .service-card {
-    background: var(--white);
-    padding: 2.5rem;
+    background: white;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 61, 130, 0.08);
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-gray);
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 61, 130, 0.15);
-    border-color: var(--accent-blue);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .service-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--secondary-blue) 100%);
-    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    background: var(--accent-blue);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
-    color: var(--white);
+    flex-shrink: 0;
 }
 
 .service-icon svg {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    stroke: white;
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--primary-blue);
-    margin-bottom: 1rem;
+    margin: 0;
+    font-weight: 700;
 }
 
 .service-card p {
     color: var(--text-gray);
-    line-height: 1.7;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.95rem;
 }
 
 /* Info Cards */
