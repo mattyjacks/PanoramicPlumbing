@@ -306,23 +306,23 @@
 }
 
 .coord-tl {
-    top: 70px;
-    left: 30px;
+    top: 0;
+    left: 0;
 }
 
 .coord-tr {
-    top: 70px;
-    right: 30px;
+    top: 0;
+    right: 0;
 }
 
 .coord-bl {
-    bottom: 30px;
-    left: 30px;
+    bottom: 0;
+    left: 0;
 }
 
 .coord-br {
-    bottom: 30px;
-    right: 30px;
+    bottom: 0;
+    right: 0;
 }
 
 /* Technical data points */

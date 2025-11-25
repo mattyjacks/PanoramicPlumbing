@@ -86,10 +86,10 @@ class BlueprintAnimation {
 
         // Technical coordinates
         const coordinates = [
-            { position: 'coord-tl', text: 'X: 000.00 | Y: 000.00' },
-            { position: 'coord-tr', text: 'X: 100.00 | Y: 000.00' },
-            { position: 'coord-bl', text: 'X: 000.00 | Y: 100.00' },
-            { position: 'coord-br', text: 'X: 100.00 | Y: 100.00' }
+            { position: 'coord-tl', text: 'X: 0.00 | Y: 100.00' },
+            { position: 'coord-tr', text: 'X: 100.00 | Y: 100.00' },
+            { position: 'coord-bl', text: 'X: 0.00 | Y: 0.00' },
+            { position: 'coord-br', text: 'X: 100.00 | Y: 0.00' }
         ];
 
         coordinates.forEach(coord => {
