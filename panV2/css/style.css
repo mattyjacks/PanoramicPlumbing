@@ -219,6 +219,11 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
+/* Google Review Button */
+.google-review-btn svg {
+    flex-shrink: 0;
+}
+
 /* Container */
 .container {
     max-width: 1200px;
