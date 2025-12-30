@@ -52,12 +52,6 @@
     }
 }
 
-@media (min-width: 1024px) {
-    .rv1-review-card {
-        flex: 0 0 33.333%;
-    }
-}
-
 .rv1-card-inner {
     background: white;
     border-radius: 12px;
@@ -126,7 +120,7 @@
 }
 
 .rv1-nav-btn:hover {
-    background: var(--accent-yellow);
+    background: #1a365d;
     transform: scale(1.1);
 }
 
@@ -138,6 +132,9 @@
 .rv1-dots {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 400px;
 }
 
 .rv1-dot {
@@ -153,6 +150,23 @@
 .rv1-dot.active {
     background: var(--primary-blue);
     transform: scale(1.2);
+}
+
+.rv1-read-more-btn {
+    background: transparent;
+    border: none;
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0;
+    transition: color 0.3s ease;
+}
+
+.rv1-read-more-btn:hover {
+    color: var(--accent-yellow);
+    text-decoration: underline;
 }
 
 /* ============================================

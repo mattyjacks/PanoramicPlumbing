@@ -25,12 +25,11 @@ function initRV1Carousel() {
 
     let currentIndex = 0;
     let cardsPerView = getCardsPerView();
-    let totalSlides = Math.ceil(cards.length / cardsPerView);
+    const totalReviews = cards.length;
+    let totalSlides = Math.ceil(totalReviews / cardsPerView);
 
     function getCardsPerView() {
-        if (window.innerWidth >= 1024) return 3;
-        if (window.innerWidth >= 768) return 2;
-        return 1;
+        return window.innerWidth >= 768 ? 2 : 1;
     }
 
     function createDots() {
@@ -81,7 +80,7 @@ function initRV1Carousel() {
             const newCardsPerView = getCardsPerView();
             if (newCardsPerView !== cardsPerView) {
                 cardsPerView = newCardsPerView;
-                totalSlides = Math.ceil(cards.length / cardsPerView);
+                totalSlides = Math.ceil(totalReviews / cardsPerView);
                 currentIndex = 0;
                 createDots();
                 goToSlide(0);
@@ -95,6 +94,41 @@ function initRV1Carousel() {
     wrapper.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
     wrapper.addEventListener('mouseleave', () => {
         autoPlayInterval = setInterval(nextSlide, 5000);
+    });
+
+    // Read More functionality
+    cards.forEach(card => {
+        const textElement = card.querySelector('.rv1-review-text');
+        if (!textElement) return;
+        
+        const fullText = textElement.textContent;
+        const charLimit = 200;
+        
+        if (fullText.length > charLimit) {
+            const truncatedText = fullText.substring(0, charLimit) + '...';
+            textElement.setAttribute('data-full-text', fullText);
+            textElement.setAttribute('data-truncated-text', truncatedText);
+            textElement.textContent = truncatedText;
+            
+            const readMoreBtn = document.createElement('button');
+            readMoreBtn.className = 'rv1-read-more-btn';
+            readMoreBtn.textContent = 'Read More';
+            readMoreBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isExpanded = textElement.classList.contains('expanded');
+                if (isExpanded) {
+                    textElement.textContent = textElement.getAttribute('data-truncated-text');
+                    textElement.classList.remove('expanded');
+                    readMoreBtn.textContent = 'Read More';
+                } else {
+                    textElement.textContent = textElement.getAttribute('data-full-text');
+                    textElement.classList.add('expanded');
+                    readMoreBtn.textContent = 'Read Less';
+                }
+            });
+            
+            textElement.parentNode.appendChild(readMoreBtn);
+        }
     });
 }
 
